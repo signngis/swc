@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="dist/jquery.validate.js"></script>
+		<script type="text/javascript" src="dist/localization/messages_zh.js"></script>
+		<script>
+			$.validator.methods.hahaeql2 = function(value, element, param) {
+				// value 传入的值 
+				// element 校验的是哪个元素
+				return value == 2;
+			}
+			$(function() {
+
+				//1、标校验属性
+				//2、调用validate();
+				//3、让提示都为中文；
+				//4、导入国际化文件默认就是中文了；
+				//5、希望自定义错误消息；自定义校验:
+				//6、拿到表单的jquery对象，调用validate（）方法并定义每个字段的校验规则即可
+				$("#commentForm").validate({
+					rules: {
+						haha: "hahaeql2",
+						name: "required",
+						email: {
+							required: true,
+							email: true
+						},
+						comment: {
+							minlength: 8,
+							maxlength: 18
+						}
+					}, //校验规则
+					messages: {
+						name: "用户名是必须填写的",
+						email: {
+							required: "邮箱必须填写",
+							email: "邮箱格式必须合法"
+						},
+						comment: {
+							minlength: "comment必须在8位以上",
+							maxlength: "comment必须小于16位"
+						},
+						haha: "结果等于2."
+					} //校验错误提示
+					
+				});
+			})
+		</script>
+	</head>
+
+	<body>
+		<form class="cmxform" id="commentForm" method="get" action="">
+			<!-- 将校验规则作为input的属性编写-->
+			<label for="cname">Name (required, at least 2 characters)</label>
+			<input id="cname" name="name" type="text">
+			<br />
+
+			<label for="cemail">E-Mail (required)</label>
+			<input id="cemail" type="email" name="email">
+			<br />
+
+			<label for="curl">URL (optional)</label>
+			<input id="curl" type="url" name="url">
+
+			<br /> 1+1=
+			<input id="curl" name="haha"><br />
+			<label for="ccomment">Your comment (required)</label>
+			<textarea id="ccomment" name="comment"></textarea>
+			<br />
+			<input class="submit" type="submit" value="Submit">
+		</form>
+
+	</body>
+	<script>
+	
+		alert("哈哈");
+		
+		alert(confirm("确认删除吗"));
+		
+		alert(prompt("请输入年龄",18));
+	
+	</script>
+
+</html>

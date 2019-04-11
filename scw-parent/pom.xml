@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.atguigu</groupId>
+    <artifactId>atguigu-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <!-- 别在仓库中找，在本项目开始的相对路径找 -->
+    <relativePath>../atguigu-parent/pom.xml</relativePath>
+  </parent>
+  <artifactId>scw-parent</artifactId>
+  <packaging>pom</packaging>
+  
+  <!-- 尚筹网的父项目，用来管理尚筹网的依赖，和聚合所有尚筹网的子项目 -->
+  
+  <modules>
+  	<module>../manager-core/pom.xml</module>
+  	<module>../manager-web/pom.xml</module>
+  </modules>
+</project>

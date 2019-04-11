@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			var stu = {name:"张三",age:18,email:"aaa@aa.com"};
+			//alert(typeof stu);
+			alert(stu);
+			
+			var stuStr = JSON.stringify(stu);
+			alert(stuStr);
+			
+			var stuObj = JSON.parse(stuStr);
+			alert(stu.email);
+			
+		</script>
+	</body>
+</html>

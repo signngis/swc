@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<!-- 引入 ECharts 文件 -->
+		<script src="js/echarts.min.js"></script>
+	</head>
+
+	<body>
+		<div id="main" style="width: 600px;height:400px;"></div>
+	</body>
+	<script type="text/javascript">
+		// 基于准备好的dom，初始化echarts实例
+		var myChart = echarts.init(document.getElementById('main'));
+
+		// 指定图表的配置项和数据
+		var option = {
+			title: {
+				text: '哈哈哈',
+				subtext: '纯属虚构',
+				top: 10,
+				left: 10
+			},
+			tooltip: {
+				trigger: 'item',
+				backgroundColor: 'rgba(0,0,250,0.2)'
+			},
+			legend: {
+				type: 'scroll',
+				bottom: 10,
+				data: ['KDA图']
+			},
+			visualMap: {
+				top: 'middle',
+				right: 10,
+				color: ['red', 'yellow'],
+				calculable: true
+			},
+			radar: {
+				indicator: [{
+					text: '击杀',
+					max: 40
+				}, {
+					text: '死亡',
+					max: 80
+				}, {
+					text: '助攻',
+					max: 400
+				}, {
+					text: '经济',
+					max: 40000
+				}, {
+					text: '伤害',
+					max: 80000
+				}]
+			},
+			series: [{
+				type: 'radar',
+				// areaStyle: {normal: {}},
+				data: [{
+					value: [28, 59, 399, 2188, 4396],
+					name: 'KDA图'
+				}]
+			}]
+		};
+
+		// 使用刚指定的配置项和数据显示图表。
+		myChart.setOption(option);
+	</script>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	</head>
+	<body>
+			<button id="btn01">点击获取张三数据</button>
+	</body>
+	<script>
+		//var alldata = null;
+		//定义了一个方法
+		/*function abc(data){
+			alldata = data;
+		}*/
+	</script>
+	<!--script src 从 目标地址获取一段js代码  	{age:18,name:'zhangsan'}  -->
+	<!--1、 从 目标地址获取一段js代码  -->
+	<!--<script src="http://localhost:8082/rest-api/hello"></script>-->
+	<script>
+		$("#btn01").click(function(){
+//			$.get("http://localhost:8082/rest-api/hello",function(data){
+//				alert(data);
+//			});
+
+			//后端获取到前端callback的值，作为方法名，将后端要返回的数据，以参数的形式传入这个方法\
+			// url?callback[jsonp]=随机函数名[jsonpCallback]&_=时间戳
+			$.ajax({
+				type:"get",
+				url:"http://localhost:8082/rest-api/hello",
+				dataType:"jsonp",
+//				jsonp:"func",
+//				jsonpCallback:"haha",
+				//通过前后配合获取数据
+				success:function(data){
+					alert(data)
+				},
+				error:function(data){
+					alert("失败")
+				}
+			});
+			//alert(alldata.age);
+		});
+	</script>
+</html>

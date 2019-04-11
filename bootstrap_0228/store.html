@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+	</head>
+	<body>
+		
+		<!--
+			localStorage - 没有时间限制的数据存储 
+			sessionStorage - 针对一个 session 的数据存储 
+		-->
+		<button id="btn01">存储数据</button>
+		<a href="store2.html">去第二页面</a>
+	</body>
+	
+	<script>
+		
+		$("#btn01").click(function(){
+			localStorage.username="张三";
+			sessionStorage.age=18;
+		});
+	</script>
+</html>

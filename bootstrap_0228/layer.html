@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="layer/layer.js"></script>
+	</head>
+
+	<body>
+		<button id="btn01">弹框</button>
+		<script>
+			/*http://layer.layui.com/*/
+			/*http://www.layui.com/doc/modules/layer.html#layer.close*/
+			$("#btn01").click(function() {
+				//layer.alert('内容');
+
+				//墨绿深蓝风
+				//				layer.alert('墨绿风格，点击确认看深蓝', {
+				//					skin: 'layui-layer-lan',
+				//					closeBtn: 2
+				//				},function(){
+				//					//手动关闭弹出框
+				//					layer.close(layer.index);
+				//				});
+
+				//询问框
+
+				layer.confirm('确认删除用户吗？', {
+					btn: ['是的', '算了'], //按钮
+					closeBtn:2
+				},function(){
+					//必须手动关闭
+					alert("你点击的确认");
+					layer.close(layer.index);
+				},function(){
+					alert("你点击了取消");
+				});
+
+			});
+		</script>
+	</body>
+
+</html>

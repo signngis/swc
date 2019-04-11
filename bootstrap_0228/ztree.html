@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="zTree_v3-3.5.28/css/zTreeStyle/zTreeStyle.css" />
+		<script type="text/javascript" src="js/jquery-3.2.1.min.js" ></script>
+		<script type="text/javascript" src="zTree_v3-3.5.28/js/jquery.ztree.all.js" ></script>
+	</head>
+	<body>
+		<!--http://www.treejs.cn/v3/main.php#_zTreeInfo-->
+		<ul id="treeDemo" class="ztree"></ul>
+	</body>
+	<script>
+		//ztree树的设置项
+		var setting = {	};
+		//ztree的节点数据
+		var zNodes = [
+		{name:"哈哈",open:true,children:[{name:"哈哈1"},{name:"哈哈2",isHidden:true}]},
+		{name:"呵呵",open:true,children:[{name:"哈哈1"},{name:"哈哈2"}]},
+		{name:"嘿嘿",isHidden:true}];
+		
+		$(function(){
+			//
+//			$.get("",function(data){
+//				
+//			})
+			var zobj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+			$.each(zobj.getNodes(),function(){
+				$.each(this.children,function(){
+					console.log(this.isHidden);
+				});
+			});
+		})
+	</script>
+</html>

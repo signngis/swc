@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+
+	<context:component-scan base-package="com.atguigu.front">
+	</context:component-scan>
+	
+	<context:property-placeholder location="classpath:restapi.properties"/>
+	
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<mvc:default-servlet-handler/>
+	<mvc:annotation-driven/>
+	
+	<mvc:view-controller path="/user/forget" view-name="reset"/>
+	<mvc:view-controller path="/user/pwd" view-name="pwd"/>
+	<mvc:view-controller path="/login.html" view-name="login"/>
+	
+	<!-- 会员中心 -->
+	<mvc:view-controller path="/member/center" view-name="member/member"/>
+	
+	<!-- 实名审核页面跳转 -->
+	<mvc:view-controller path="/auth/step01.html" view-name="member/realauth/step01-accttype"/>
+	<mvc:view-controller path="/auth/step02.html" view-name="member/realauth/step02-apply"/>
+	<mvc:view-controller path="/auth/step03.html" view-name="member/realauth/step03-upload"/>
+	<mvc:view-controller path="/auth/step04.html" view-name="member/realauth/step04-email"/>
+	<mvc:view-controller path="/auth/step05.html" view-name="member/realauth/step05-confirm"/>
+	
+	
+</beans>
